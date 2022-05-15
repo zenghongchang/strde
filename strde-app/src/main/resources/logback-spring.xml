@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<configuration>
+	<property name="log.path" value="${LOG_FILE:-${LOG_PATH:-${LOG_TEMP:-${java.io.tmpdir:-/tmp}}}/spring.log}" />
+	<property name="log.maxHistory" value="365" />
+	<property name="log.maxFileSize" value="10" />
+	<property name="log.pattern" value="%d{yyyy-MM-dd HH:mm:ss.SSS} %-5level %thread %logger %msg%n" />
+	<property name="log.colorPattern" value="%magenta(%d{yyyy-MM-dd HH:mm:ss.SSS}) %highlight(%-5level) %yellow(%thread) %green(%logger) %msg%n" />
+	<logger name="org.apache.catalina.startup.DigesterFactory" level="ERROR" />
+	<logger name="org.apache.catalina.util.LifecycleBase" level="ERROR" />
+	<logger name="org.apache.coyote.http11.Http11NioProtocol" level="WARN" />
+	<logger name="org.apache.sshd.common.util.SecurityUtils" level="WARN" />
+	<logger name="org.apache.tomcat.util.net.NioSelectorPool" level="WARN" />
+	<logger name="org.eclipse.jetty.util.component.AbstractLifeCycle" level="ERROR" />
+	<logger name="org.hibernate.validator.internal.util.Version" level="WARN" />
+	<appender name="CONSOLE" class="ch.qos.logback.core.ConsoleAppender">
+		<encoder>
+			<pattern>${log.colorPattern}</pattern>
+		</encoder>
+	</appender>
+	<appender name="FILE" class="ch.qos.logback.core.rolling.RollingFileAppender">
+		<encoder>
+			<pattern>${log.colorPattern}</pattern>
+		</encoder>
+		<file>${log.path}</file>
+		<rollingPolicy class="ch.qos.logback.core.rolling.SizeAndTimeBasedRollingPolicy">
+			<fileNamePattern>${log.path}.%d{yyyy-MM-dd}.%i.gz</fileNamePattern>
+			<maxFileSize>${log.maxFileSize:-10MB}</maxFileSize>
+			<maxHistory>${log.maxHistory:-0}</maxHistory>
+		</rollingPolicy>
+	</appender>
+	<root level="INFO">
+		<appender-ref ref="CONSOLE" />
+		<appender-ref ref="FILE" />
+	</root>
+	<logger name="org.springframework.web" level="INFO" />
+	<logger name="org.springboot.sample" level="TRACE" />
+	<!-- 开发、测试环境 -->
+	<springProfile name="dev,test">
+		<logger name="org.springframework.web" level="INFO" />
+		<logger name="org.springboot.sample" level="INFO" />
+		<logger name="com.slipper" level="DEBUG" />
+	</springProfile>
+	<!-- 生产环境 -->
+	<springProfile name="prod">
+		<logger name="org.springframework.web" level="ERROR" />
+		<logger name="org.springboot.sample" level="ERROR" />
+		<logger name="com.slipper" level="ERROR" />
+	</springProfile>
+</configuration>
