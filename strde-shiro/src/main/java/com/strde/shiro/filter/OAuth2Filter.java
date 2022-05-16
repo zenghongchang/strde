@@ -15,9 +15,9 @@ import org.apache.shiro.web.filter.authc.AuthenticatingFilter;
 import org.springframework.web.bind.annotation.RequestMethod;
 
 import com.alibaba.druid.support.json.JSONUtils;
-import com.slipper.common.utils.Constant;
-import com.slipper.common.utils.R;
-import com.slipper.common.utils.RequestBody;
+import com.strde.common.utils.Constant;
+import com.strde.common.utils.R;
+import com.strde.common.utils.RequestBody;
 import com.strde.shiro.token.OAuth2Token;
 
 public class OAuth2Filter extends AuthenticatingFilter {

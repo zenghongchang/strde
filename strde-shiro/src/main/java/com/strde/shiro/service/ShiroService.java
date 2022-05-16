@@ -1,7 +1,7 @@
 package com.strde.shiro.service;
 
-import com.slipper.service.modules.system.token.entity.TokenEntity;
-import com.slipper.service.modules.system.admin.dto.AdminDto;
+import com.strde.service.modules.system.admin.dto.AdminDto;
+import com.strde.service.modules.system.token.entity.TokenEntity;
 
 import java.util.Set;
 

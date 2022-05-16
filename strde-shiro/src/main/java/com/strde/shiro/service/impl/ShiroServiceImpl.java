@@ -11,12 +11,12 @@ import org.apache.commons.collections.CollectionUtils;
 import org.apache.commons.lang3.StringUtils;
 import org.springframework.stereotype.Service;
 
-import com.slipper.common.utils.Common;
-import com.slipper.service.modules.develop.menu.dao.MenuDao;
-import com.slipper.service.modules.system.admin.dao.AdminDao;
-import com.slipper.service.modules.system.admin.dto.AdminDto;
-import com.slipper.service.modules.system.token.dao.TokenDao;
-import com.slipper.service.modules.system.token.entity.TokenEntity;
+import com.strde.common.utils.Common;
+import com.strde.service.modules.develop.menu.dao.MenuDao;
+import com.strde.service.modules.system.admin.dao.AdminDao;
+import com.strde.service.modules.system.admin.dto.AdminDto;
+import com.strde.service.modules.system.token.dao.TokenDao;
+import com.strde.service.modules.system.token.entity.TokenEntity;
 import com.strde.shiro.service.ShiroService;
 
 /**

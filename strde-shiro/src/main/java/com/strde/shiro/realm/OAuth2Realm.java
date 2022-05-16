@@ -18,10 +18,10 @@ import org.apache.shiro.subject.PrincipalCollection;
 import org.springframework.stereotype.Component;
 
 import com.alibaba.druid.support.json.JSONUtils;
-import com.slipper.common.utils.Constant;
-import com.slipper.common.utils.R;
-import com.slipper.service.modules.system.admin.dto.AdminDto;
-import com.slipper.service.modules.system.token.entity.TokenEntity;
+import com.strde.common.utils.Constant;
+import com.strde.common.utils.R;
+import com.strde.service.modules.system.admin.dto.AdminDto;
+import com.strde.service.modules.system.token.entity.TokenEntity;
 import com.strde.shiro.service.ShiroService;
 import com.strde.shiro.token.OAuth2Token;
 
