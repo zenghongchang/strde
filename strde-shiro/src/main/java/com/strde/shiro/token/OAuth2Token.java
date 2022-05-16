@@ -1,4 +1,4 @@
-package com.slipper.shiro.token;
+package com.strde.shiro.token;
 
 import org.apache.shiro.authc.AuthenticationToken;
 
