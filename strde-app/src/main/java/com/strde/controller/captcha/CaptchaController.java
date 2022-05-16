@@ -1,4 +1,4 @@
-package com.strde.modules.captcha;
+package com.strde.controller.captcha;
 
 import org.apache.commons.io.IOUtils;
 import org.springframework.web.bind.annotation.GetMapping;

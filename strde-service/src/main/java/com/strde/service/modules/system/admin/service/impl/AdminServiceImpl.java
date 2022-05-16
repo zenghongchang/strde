@@ -47,9 +47,9 @@ public class AdminServiceImpl extends ServiceImpl<AdminDao, AdminEntity> impleme
         boolean isSuper = Common.isSuper(adminId);
         RPage<AdminDto> rPage;
         if (isSuper) {
-            rPage = new RPage<>(baseMapper.queryAllPage(page, username, nickname));
+            rPage = new RPage<AdminDto>(baseMapper.queryAllPage(page, username, nickname));
         } else {
-            rPage = new RPage<>(baseMapper.queryByCreatorPage(page, adminId, username, nickname));
+            rPage = new RPage<AdminDto>(baseMapper.queryByCreatorPage(page, adminId, username, nickname));
         }
         return rPage;
     }
@@ -67,28 +67,26 @@ public class AdminServiceImpl extends ServiceImpl<AdminDao, AdminEntity> impleme
     @Override
     @Transactional
     public void create(AdminEntity adminEntity, AdminDto adminDto) {
-        validatedRole(adminEntity, adminDto);
-
-        QueryWrapper<AdminEntity> wrapper = new QueryWrapper<AdminEntity>()
-                .eq("username", adminEntity.getUsername());
+        validatedRole(adminEntity, adminDto);        
+        QueryWrapper<AdminEntity> wrapper = new QueryWrapper<AdminEntity>().eq("username", adminEntity.getUsername());
         int count = this.count(wrapper);
         if (count != 0) {
             throw new RunException("数据库中已存在该记录!");
         }
-
+        
         adminEntity.setCreatedAt(new Date());
         // 加密
         String salt = RandomStringUtils.randomAlphanumeric(20);
         String password = new Sha256Hash(adminEntity.getPassword(), salt).toHex();
         adminEntity.setSalt(salt);
         adminEntity.setPassword(password);
-
+        
         this.save(adminEntity);
-
-//        List<AdminRoleEntity> adminRoleEntities = getAdminRoles(adminEntity.getId(), adminEntity.getRoleIds());
-//        for (AdminRoleEntity adminRoleEntity : adminRoleEntities) {
-//            adminRoleDao.insert(adminRoleEntity);
-//        }
+        
+        // List<AdminRoleEntity> adminRoleEntities = getAdminRoles(adminEntity.getId(), adminEntity.getRoleIds());
+        // for (AdminRoleEntity adminRoleEntity : adminRoleEntities) {
+        // adminRoleDao.insert(adminRoleEntity);
+        // }
         adminRoleService.createOrUpdate(adminEntity.getId(), adminEntity.getRoleIds());
     }
 

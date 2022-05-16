@@ -1,7 +1,7 @@
-package com.strde.modules.login;
+package com.strde.controller.login;
 
 import com.strde.common.utils.R;
-import com.strde.modules.AbstractController;
+import com.strde.controller.AbstractController;
 import com.strde.service.modules.login.service.LoginService;
 import com.strde.service.modules.login.vo.LoginVo;
 

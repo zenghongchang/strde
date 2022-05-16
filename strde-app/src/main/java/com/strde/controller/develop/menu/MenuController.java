@@ -1,11 +1,11 @@
-package com.strde.modules.develop.menu;
+package com.strde.controller.develop.menu;
 
 import com.strde.common.exception.RunException;
 import com.strde.common.utils.Constant;
 import com.strde.common.utils.R;
 import com.strde.common.validator.group.Create;
 import com.strde.common.validator.group.Update;
-import com.strde.modules.AbstractController;
+import com.strde.controller.AbstractController;
 import com.strde.service.annotation.OperationLog;
 import com.strde.service.modules.develop.menu.dto.MenuDto;
 import com.strde.service.modules.develop.menu.entity.MenuEntity;

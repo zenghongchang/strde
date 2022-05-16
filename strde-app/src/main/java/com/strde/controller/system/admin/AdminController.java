@@ -1,9 +1,9 @@
-package com.strde.modules.system.admin;
+package com.strde.controller.system.admin;
 
 import com.strde.common.utils.R;
 import com.strde.common.validator.group.Create;
 import com.strde.common.validator.group.Update;
-import com.strde.modules.AbstractController;
+import com.strde.controller.AbstractController;
 import com.strde.service.annotation.OperationLog;
 import com.strde.service.modules.system.admin.entity.AdminEntity;
 import com.strde.service.modules.system.admin.service.AdminService;
@@ -20,11 +20,12 @@ import java.util.Date;
 import java.util.Map;
 
 /**
- * 管理员
- *
- * @author gumingchen
- * @email 1240235512@qq.com
- * @date 1995-08-30 00:00:00
+ * 
+ * <用户管理.>
+ * @author  Old曾
+ * @version  [版本号, 2022年5月16日]
+ * @see  [相关类/方法]
+ * @since  [产品/模块版本]
  */
 @RestController
 @RequestMapping("/backstage/admin")
@@ -65,7 +66,7 @@ public class AdminController extends AbstractController {
      * }
      */
     @GetMapping("/self/info")
-    public R selfInfo(){
+    public R selfInfo() {
         return R.success(getAdmin());
     }
 

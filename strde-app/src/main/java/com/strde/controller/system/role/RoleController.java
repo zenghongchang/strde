@@ -1,9 +1,9 @@
-package com.strde.modules.system.role;
+package com.strde.controller.system.role;
 
 import com.strde.common.utils.R;
 import com.strde.common.validator.group.Create;
 import com.strde.common.validator.group.Update;
-import com.strde.modules.AbstractController;
+import com.strde.controller.AbstractController;
 import com.strde.service.annotation.OperationLog;
 import com.strde.service.modules.system.role.entity.RoleEntity;
 import com.strde.service.modules.system.role.service.RoleService;

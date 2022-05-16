@@ -1,4 +1,4 @@
-package com.strde.modules.log.operation;
+package com.strde.controller.log.operation;
 
 import com.strde.common.utils.R;
 import com.strde.service.modules.log.operation.service.OperationLogService;
