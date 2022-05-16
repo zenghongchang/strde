@@ -1,10 +1,12 @@
-package com.slipper.shiro.filter;
+package com.strde.shiro.filter;
 
-import com.alibaba.druid.support.json.JSONUtils;
-import com.slipper.common.utils.Constant;
-import com.slipper.common.utils.R;
-import com.slipper.common.utils.RequestBody;
-import com.slipper.shiro.token.OAuth2Token;
+import java.io.IOException;
+
+import javax.servlet.ServletRequest;
+import javax.servlet.ServletResponse;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+
 import org.apache.commons.lang3.StringUtils;
 import org.apache.shiro.authc.AuthenticationException;
 import org.apache.shiro.authc.AuthenticationToken;
@@ -12,11 +14,11 @@ import org.apache.shiro.subject.Subject;
 import org.apache.shiro.web.filter.authc.AuthenticatingFilter;
 import org.springframework.web.bind.annotation.RequestMethod;
 
-import javax.servlet.ServletRequest;
-import javax.servlet.ServletResponse;
-import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
-import java.io.IOException;
+import com.alibaba.druid.support.json.JSONUtils;
+import com.slipper.common.utils.Constant;
+import com.slipper.common.utils.R;
+import com.slipper.common.utils.RequestBody;
+import com.strde.shiro.token.OAuth2Token;
 
 public class OAuth2Filter extends AuthenticatingFilter {
     
@@ -146,5 +148,5 @@ public class OAuth2Filter extends AuthenticatingFilter {
         httpServletResponse.setHeader("Access-Control-Allow-Credentials", "true");
         httpServletResponse.setHeader("Access-Control-Allow-Origin", RequestBody.getHeader("Origin"));
         return httpServletResponse;
-    }    
+    }
 }
